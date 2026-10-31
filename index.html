@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Stories by A. S. Gates — Faith-Based Children's Books</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    /* CORE PALETTE */
+    --gold:         #D4AF37;
+    --gold-light:   #F7EEC2;
+    --gold-mid:     #EDD055;
+    --gold-dark:    #A8881C;
+    --gold-deep:    #7A6010;
+    --navy:         #0B1A3D;
+    --navy-mid:     #0D2050;
+    --navy-light:   #1A347A;
+    --navy-deep:    #060E22;
+    --crimson:      #9B0000;
+    --crimson-mid:  #C0001E;
+    --crimson-light:#E8002A;
+    /* NEW VIBRANT ACCENTS */
+    --teal:         #008C9E;
+    --teal-mid:     #00B2C8;
+    --teal-light:   #C8F2F8;
+    --teal-glow:    rgba(0,178,200,0.18);
+    --purple:       #6B21A8;
+    --purple-mid:   #9333EA;
+    --purple-light: #EDE9FE;
+    --purple-glow:  rgba(147,51,234,0.18);
+    --crimson-glow: rgba(192,0,30,0.18);
+    --gold-glow:    rgba(212,175,55,0.22);
+    /* NEUTRALS */
+    --ivory:  #FAF6EC;
+    --white:  #FFFFFF;
+    --text:   #1A1A1A;
+    --text-mid: #3A3A3A;
+    --text-light: #5A5A6A;
+    --radius: 16px;
+    --radius-lg: 24px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Georgia', serif; background: var(--ivory); color: var(--text); overflow-x: hidden; }
+
+  /* ─── SHIMMER / GRADIENTS ─── */
+  .gold-shimmer {
+    background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 30%, var(--gold-mid) 55%, var(--gold) 75%, var(--gold-dark) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .teal-shimmer {
+    background: linear-gradient(90deg, var(--teal) 0%, var(--teal-mid) 50%, var(--teal) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .purple-shimmer {
+    background: linear-gradient(90deg, var(--purple) 0%, var(--purple-mid) 50%, var(--purple) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  /* ─── RULES ─── */
+  .gold-rule    { height: 3px; background: linear-gradient(90deg, transparent, var(--gold-dark), var(--gold-mid), var(--gold-dark), transparent); border: none; margin: 0; }
+  .crimson-rule { height: 2px; background: linear-gradient(90deg, transparent, var(--crimson), var(--crimson-mid), var(--crimson), transparent); border: none; margin: 0; }
+  .teal-rule    { height: 2px; background: linear-gradient(90deg, transparent, var(--teal), var(--teal-mid), var(--teal), transparent); border: none; margin: 0; }
+  .rainbow-rule { height: 4px; background: linear-gradient(90deg, var(--crimson), var(--gold), var(--teal-mid), var(--purple-mid), var(--gold), var(--crimson)); border: none; margin: 0; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--navy-deep);
+    border-bottom: 3px solid var(--gold-dark);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 70px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.65);
+  }
+  .nav-brand {
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-mid), var(--gold-dark));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    font-size: 1.18rem; font-weight: bold; letter-spacing: 0.04em;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.78); text-decoration: none;
+    font-family: 'Arial', sans-serif; font-size: 0.88rem; letter-spacing: 0.06em;
+    transition: color 0.2s; position: relative; padding-bottom: 4px;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: var(--gold-mid); transform: scaleX(0);
+    transition: transform 0.2s; border-radius: 2px;
+  }
+  .nav-links a:hover { color: var(--gold-mid); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-mid) 50%, var(--gold-dark) 100%);
+    color: var(--navy-deep); padding: 10px 26px;
+    border-radius: 28px; font-family: 'Arial', sans-serif; font-size: 0.88rem;
+    font-weight: 900; text-decoration: none; transition: all 0.22s;
+    box-shadow: 0 2px 16px rgba(212,175,55,0.45); white-space: nowrap; letter-spacing: 0.03em;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(212,175,55,0.6); }
+
+  /* ─── BUTTONS ─── */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-mid) 50%, var(--gold-dark) 100%);
+    color: var(--navy-deep); padding: 15px 36px;
+    border-radius: 36px; font-family: 'Arial', sans-serif; font-size: 1rem;
+    font-weight: 900; text-decoration: none; transition: all 0.22s; display: inline-block;
+    box-shadow: 0 6px 24px rgba(212,175,55,0.45); letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(212,175,55,0.6); }
+  .btn-secondary {
+    background: transparent; color: white; padding: 15px 36px;
+    border-radius: 36px; font-family: 'Arial', sans-serif; font-size: 1rem;
+    font-weight: bold; text-decoration: none; border: 2px solid rgba(212,175,55,0.5);
+    transition: all 0.22s; display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold-mid); background: rgba(212,175,55,0.08); }
+  .btn-teal {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 100%);
+    color: white; padding: 15px 36px;
+    border-radius: 36px; font-family: 'Arial', sans-serif; font-size: 1rem;
+    font-weight: 900; text-decoration: none; transition: all 0.22s; display: inline-block;
+    box-shadow: 0 6px 24px rgba(0,140,158,0.4); letter-spacing: 0.02em;
+  }
+  .btn-teal:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,140,158,0.55); }
+  .btn-crimson {
+    background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-mid) 100%);
+    color: white; padding: 15px 36px;
+    border-radius: 36px; font-family: 'Arial', sans-serif; font-size: 1rem;
+    font-weight: 900; text-decoration: none; transition: all 0.22s; display: inline-block;
+    box-shadow: 0 6px 24px rgba(155,0,0,0.38); letter-spacing: 0.02em;
+  }
+  .btn-crimson:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(155,0,0,0.5); }
+  .btn-purple {
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
+    color: white; padding: 15px 36px;
+    border-radius: 36px; font-family: 'Arial', sans-serif; font-size: 1rem;
+    font-weight: 900; text-decoration: none; transition: all 0.22s; display: inline-block;
+    box-shadow: 0 6px 24px rgba(107,33,168,0.4); letter-spacing: 0.02em;
+  }
+  .btn-purple:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(107,33,168,0.55); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(0,178,200,0.12) 0%, transparent 45%),
+      radial-gradient(ellipse at 20% 80%, rgba(147,51,234,0.1) 0%, transparent 40%),
+      radial-gradient(ellipse at 80% 80%, rgba(155,0,0,0.1) 0%, transparent 35%),
+      linear-gradient(155deg, var(--navy-deep) 0%, var(--navy) 45%, var(--navy-mid) 80%, #12296B 100%);
+    display: flex; align-items: center; justify-content: center;
+    padding: 110px 48px 80px; position: relative; overflow: hidden;
+  }
+  /* Decorative star-dots */
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      radial-gradient(2px 2px at 15% 20%, rgba(212,175,55,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 85% 15%, rgba(0,178,200,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 45% 70%, rgba(147,51,234,0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 70% 85%, rgba(212,175,55,0.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 30% 55%, rgba(0,178,200,0.3) 0%, transparent 100%),
+      radial-gradient(2px 2px at 92% 48%, rgba(155,0,0,0.45) 0%, transparent 100%);
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--crimson), var(--gold), var(--teal-mid), var(--purple-mid), var(--gold), var(--crimson));
+  }
+  .hero-inner { max-width: 1120px; width: 100%; display: flex; gap: 88px; align-items: center; position: relative; z-index: 1; }
+  .hero-text { flex: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(212,175,55,0.14); border: 1px solid rgba(212,175,55,0.44);
+    color: var(--gold-mid); padding: 7px 20px; border-radius: 28px;
+    font-family: 'Arial', sans-serif; font-size: 0.78rem; letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 28px; font-weight: bold;
+  }
+  .hero h1 { font-size: 3.5rem; color: white; line-height: 1.12; margin-bottom: 22px; text-shadow: 0 4px 28px rgba(0,0,0,0.5); }
+  .hero-sub { font-family: 'Arial', sans-serif; font-size: 1.1rem; color: rgba(255,255,255,0.82); line-height: 1.82; margin-bottom: 40px; max-width: 520px; }
+  .hero-buttons { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 44px; }
+  .hero-stats { display: flex; gap: 36px; }
+  .hero-stat-num {
+    font-size: 2rem; font-weight: bold; display: block;
+    background: linear-gradient(135deg, var(--gold), var(--gold-mid));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .hero-stat-label { font-family: 'Arial', sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* HERO BOOK CARD */
+  .hero-book {
+    flex-shrink: 0; width: 280px;
+    background: linear-gradient(155deg, var(--gold) 0%, var(--gold-mid) 40%, var(--gold-dark) 100%);
+    border-radius: var(--radius-lg); padding: 44px 32px;
+    box-shadow: 0 28px 72px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.12), inset 0 1px 0 rgba(255,255,255,0.35);
+    text-align: center; position: relative;
+  }
+  .hero-book::before { content: '📖'; font-size: 4.5rem; display: block; margin-bottom: 18px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4)); }
+  .hero-book-ribbon {
+    position: absolute; top: -8px; right: 20px;
+    background: linear-gradient(135deg, var(--crimson), var(--crimson-mid));
+    color: white; font-family: 'Arial', sans-serif; font-size: 0.7rem; font-weight: 900;
+    padding: 4px 14px; border-radius: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(155,0,0,0.5);
+  }
+  .hero-book-title { color: var(--navy-deep); font-size: 1.22rem; font-weight: bold; line-height: 1.3; margin-bottom: 8px; }
+  .hero-book-sub   { color: var(--navy); font-family: 'Arial', sans-serif; font-size: 0.82rem; margin-bottom: 18px; font-weight: bold; }
+  .hero-book-tag   { display: inline-block; background: var(--navy-deep); color: var(--gold-mid); padding: 7px 18px; border-radius: 20px; font-family: 'Arial', sans-serif; font-size: 0.76rem; font-weight: 900; letter-spacing: 0.04em; }
+  .hero-book-price { margin-top: 14px; font-family: 'Arial', sans-serif; font-size: 0.82rem; color: var(--navy); font-weight: bold; }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 96px 48px; }
+  .section-inner { max-width: 1120px; margin: 0 auto; }
+  .section-label { font-family: 'Arial', sans-serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 12px; font-weight: bold; }
+  .section-title { font-size: 2.65rem; color: var(--navy-deep); margin-bottom: 18px; line-height: 1.18; font-weight: bold; }
+  .section-desc  { font-family: 'Arial', sans-serif; font-size: 1.05rem; color: var(--text-light); line-height: 1.88; max-width: 640px; margin-bottom: 52px; }
+
+  /* ─── COLOR ACCENT BANDS ─── */
+  .accent-band-teal    { background: linear-gradient(90deg, var(--teal) 0%, var(--teal-mid) 100%); height: 6px; }
+  .accent-band-purple  { background: linear-gradient(90deg, var(--purple) 0%, var(--purple-mid) 100%); height: 6px; }
+
+  /* ─── BOOK SECTION ─── */
+  #book { background: var(--white); }
+  .book-layout { display: flex; gap: 80px; align-items: flex-start; }
+  .book-cover-wrap {
+    flex-shrink: 0; width: 250px;
+    background: linear-gradient(155deg, var(--gold) 0%, var(--gold-mid) 45%, var(--gold-dark) 100%);
+    border-radius: var(--radius); padding: 36px 28px; text-align: center;
+    box-shadow: 0 20px 60px rgba(212,175,55,0.4), 0 4px 18px rgba(0,0,0,0.2);
+    position: relative;
+  }
+  .book-cover-wrap::before { content: '📖'; font-size: 4rem; display: block; margin-bottom: 14px; }
+  .book-cover-badge {
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--teal), var(--teal-mid));
+    color: white; font-family: 'Arial', sans-serif; font-size: 0.68rem; font-weight: 900;
+    padding: 4px 14px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.06em;
+    white-space: nowrap; box-shadow: 0 4px 14px rgba(0,140,158,0.4);
+  }
+  .book-cover-title  { color: var(--navy-deep); font-size: 1.15rem; font-weight: bold; line-height: 1.3; margin-bottom: 6px; }
+  .book-cover-author { color: var(--navy); font-family: 'Arial', sans-serif; font-size: 0.82rem; margin-bottom: 14px; font-weight: bold; }
+  .book-cover-isbn   { background: var(--navy-deep); color: var(--gold-mid); padding: 5px 14px; border-radius: 14px; font-family: 'Arial', sans-serif; font-size: 0.72rem; font-weight: bold; display: inline-block; }
+  .book-content { flex: 1; }
+  .book-content p { font-family: 'Arial', sans-serif; font-size: 1rem; color: var(--text-mid); line-height: 2; margin-bottom: 18px; }
+  .book-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0; }
+  .book-tag {
+    background: linear-gradient(135deg, var(--gold-light), #FFF3BE);
+    color: var(--navy-deep); padding: 7px 18px; border-radius: 22px;
+    font-family: 'Arial', sans-serif; font-size: 0.82rem; font-weight: 800;
+    border: 1.5px solid rgba(212,175,55,0.55); transition: all 0.2s;
+  }
+  .book-tag:nth-child(2) { background: linear-gradient(135deg, var(--teal-light), #D0F5FB); border-color: rgba(0,140,158,0.4); color: var(--teal); }
+  .book-tag:nth-child(3) { background: linear-gradient(135deg, var(--purple-light), #EDE9FE); border-color: rgba(107,33,168,0.3); color: var(--purple); }
+  .book-tag:nth-child(4) { background: linear-gradient(135deg, #FFE4E4, #FFD0D0); border-color: rgba(155,0,0,0.3); color: var(--crimson); }
+  .book-tag:nth-child(5) { background: linear-gradient(135deg, var(--teal-light), #D0F5FB); border-color: rgba(0,140,158,0.4); color: var(--teal); }
+  .book-scripture {
+    background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+    border-radius: var(--radius); padding: 32px 36px; margin: 32px 0;
+    border-left: 5px solid var(--gold);
+    box-shadow: 0 8px 36px rgba(6,14,34,0.25);
+    position: relative; overflow: hidden;
+  }
+  .book-scripture::after {
+    content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--teal-mid), var(--purple-mid));
+  }
+  .book-scripture blockquote { color: rgba(255,255,255,0.95); font-size: 1.22rem; line-height: 1.78; font-style: italic; margin-bottom: 12px; }
+  .book-scripture cite { color: var(--gold-mid); font-family: 'Arial', sans-serif; font-size: 0.88rem; font-style: normal; font-weight: bold; }
+  .book-pricing { display: flex; gap: 16px; margin: 28px 0; flex-wrap: wrap; }
+  .price-pill {
+    background: linear-gradient(135deg, var(--navy-deep), var(--navy));
+    color: var(--gold-mid); padding: 10px 22px; border-radius: 28px;
+    font-family: 'Arial', sans-serif; font-size: 0.9rem; font-weight: 900;
+    border: 1px solid rgba(212,175,55,0.3);
+  }
+
+  /* ─── FEATURES ─── */
+  #features {
+    background:
+      radial-gradient(ellipse at 0% 100%, var(--teal-glow) 0%, transparent 50%),
+      radial-gradient(ellipse at 100% 0%, var(--purple-glow) 0%, transparent 50%),
+      #EFF2FF;
+  }
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .feature-card {
+    background: var(--white); border-radius: var(--radius); padding: 36px 30px;
+    border: 1.5px solid transparent; transition: all 0.28s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    position: relative; overflow: hidden;
+  }
+  .feature-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .feature-card:nth-child(1)::before { background: linear-gradient(90deg, var(--gold-dark), var(--gold-mid)); }
+  .feature-card:nth-child(2)::before { background: linear-gradient(90deg, var(--teal), var(--teal-mid)); }
+  .feature-card:nth-child(3)::before { background: linear-gradient(90deg, var(--purple), var(--purple-mid)); }
+  .feature-card:nth-child(4)::before { background: linear-gradient(90deg, var(--crimson), var(--crimson-mid)); }
+  .feature-card:nth-child(5)::before { background: linear-gradient(90deg, var(--teal-mid), var(--purple-mid)); }
+  .feature-card:nth-child(6)::before { background: linear-gradient(90deg, var(--gold-dark), var(--crimson)); }
+  .feature-card:hover { transform: translateY(-7px); box-shadow: 0 20px 48px rgba(11,26,61,0.14); border-color: rgba(212,175,55,0.2); }
+  .feature-icon  { font-size: 2.8rem; margin-bottom: 18px; display: block; }
+  .feature-title { font-size: 1.12rem; color: var(--navy-deep); margin-bottom: 12px; font-weight: bold; }
+  .feature-desc  { font-family: 'Arial', sans-serif; font-size: 0.92rem; color: var(--text-light); line-height: 1.78; }
+
+  /* ─── QUOTE BANNER ─── */
+  .quote-section {
+    background:
+      radial-gradient(ellipse at 30% 50%, rgba(0,178,200,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse at 70% 50%, rgba(147,51,234,0.07) 0%, transparent 55%),
+      linear-gradient(155deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-mid) 100%);
+    padding: 88px 48px; text-align: center; position: relative; overflow: hidden;
+  }
+  .quote-section::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--crimson), var(--gold), var(--teal-mid), var(--purple-mid), var(--gold), var(--crimson));
+  }
+  .quote-mark {
+    font-size: 9rem; line-height: 1; font-family: Georgia, serif;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold-mid));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    opacity: 0.35; position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+    pointer-events: none; user-select: none;
+  }
+  .quote-section blockquote {
+    max-width: 780px; margin: 0 auto; font-size: 1.9rem; color: white;
+    line-height: 1.65; font-style: italic; position: relative; z-index: 1;
+  }
+  .quote-cite {
+    display: block; margin-top: 24px;
+    font-family: 'Arial', sans-serif; font-size: 0.9rem; font-style: normal;
+    background: linear-gradient(90deg, var(--teal-mid), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    font-weight: bold; letter-spacing: 0.04em;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--white); }
+  .about-layout { display: flex; gap: 80px; align-items: flex-start; }
+  .about-portrait {
+    flex-shrink: 0; width: 240px;
+    border-radius: var(--radius-lg); overflow: hidden;
+    box-shadow: 0 16px 52px rgba(6,14,34,0.22);
+    position: relative;
+  }
+  .about-portrait-inner {
+    background: linear-gradient(155deg, var(--navy-deep), var(--navy-mid));
+    width: 100%; aspect-ratio: 3/4;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 16px; padding: 32px;
+  }
+  .about-portrait-emoji { font-size: 5rem; }
+  .about-portrait-name  { color: var(--gold-mid); font-family: 'Arial', sans-serif; font-size: 0.88rem; font-weight: bold; text-align: center; }
+  .about-portrait::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 6px;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold-mid));
+  }
+  .about-portrait-accent {
+    position: absolute; top: 0; left: 0; right: 0; height: 6px;
+    background: linear-gradient(90deg, var(--teal), var(--teal-mid));
+  }
+  .about-content { flex: 1; }
+  .about-content p { font-family: 'Arial', sans-serif; font-size: 1rem; color: var(--text-mid); line-height: 2; margin-bottom: 18px; }
+  .about-values { display: flex; flex-direction: column; gap: 16px; margin-top: 28px; }
+  .about-value {
+    display: flex; gap: 18px; align-items: flex-start;
+    background: linear-gradient(135deg, #F8F4FF, #F0F8FF);
+    border-radius: 12px; padding: 18px 20px;
+    border-left: 4px solid var(--teal);
+    transition: all 0.2s;
+  }
+  .about-value:nth-child(2) { background: linear-gradient(135deg, #FFF8F0, #FFF4E0); border-left-color: var(--gold-dark); }
+  .about-value:nth-child(3) { background: linear-gradient(135deg, #F8F0FF, #F3E8FF); border-left-color: var(--purple-mid); }
+  .about-value:hover { transform: translateX(4px); }
+  .about-value-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+  .about-value-text strong { display: block; color: var(--navy-deep); font-size: 1rem; margin-bottom: 4px; }
+  .about-value-text span  { font-family: 'Arial', sans-serif; font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
+
+  /* ─── COMING SOON ─── */
+  #coming-soon {
+    background:
+      radial-gradient(ellipse at 15% 50%, var(--teal-glow) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 50%, var(--purple-glow) 0%, transparent 50%),
+      linear-gradient(160deg, #F0F4FF 0%, #F8F0FF 100%);
+  }
+  .coming-card {
+    background: white; border-radius: var(--radius-lg);
+    display: flex; gap: 0; align-items: stretch; overflow: hidden;
+    box-shadow: 0 12px 48px rgba(11,26,61,0.13);
+    border: 1.5px solid rgba(107,33,168,0.15);
+  }
+  .coming-book {
+    background: linear-gradient(155deg, var(--purple) 0%, var(--purple-mid) 60%, #A855F7 100%);
+    width: 200px; flex-shrink: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 44px 24px; text-align: center; position: relative;
+  }
+  .coming-book::before { content: '📘'; font-size: 4rem; display: block; margin-bottom: 20px; }
+  .coming-book-label {
+    background: rgba(255,255,255,0.25); color: white;
+    font-family: 'Arial', sans-serif; font-size: 0.7rem; font-weight: 900;
+    padding: 4px 12px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .coming-book-title { color: white; font-size: 1.15rem; font-weight: bold; line-height: 1.3; }
+  .coming-content { flex: 1; padding: 44px 48px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+  .coming-content h3 { font-size: 1.6rem; color: var(--navy-deep); line-height: 1.3; }
+  .coming-content p  { font-family: 'Arial', sans-serif; font-size: 1rem; color: var(--text-mid); line-height: 1.9; }
+  .coming-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--purple-light), #EDE9FE);
+    color: var(--purple); font-family: 'Arial', sans-serif; font-size: 0.84rem; font-weight: 800;
+    padding: 8px 20px; border-radius: 20px; border: 1.5px solid rgba(107,33,168,0.3);
+    align-self: flex-start;
+  }
+
+  /* ─── SOCIAL ─── */
+  #social {
+    background:
+      radial-gradient(ellipse at 50% 0%, var(--gold-glow) 0%, transparent 60%),
+      var(--navy-deep);
+  }
+  .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .social-card {
+    background: rgba(255,255,255,0.06); border-radius: var(--radius);
+    padding: 32px 24px; text-align: center;
+    border: 1.5px solid rgba(255,255,255,0.1);
+    transition: all 0.28s; cursor: pointer; text-decoration: none; display: block;
+    position: relative; overflow: hidden;
+  }
+  .social-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  }
+  .social-card:nth-child(1)::before { background: linear-gradient(90deg, #C13584, #E1306C, #F77737); }
+  .social-card:nth-child(2)::before { background: linear-gradient(90deg, #010101, #69C9D0, #EE1D52); }
+  .social-card:nth-child(3)::before { background: linear-gradient(90deg, #1877F2, #0A66C2); }
+  .social-card:nth-child(4)::before { background: linear-gradient(90deg, #FF9900, #FFB500); }
+  .social-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); border-color: rgba(255,255,255,0.22); }
+  .social-icon    { font-size: 2.6rem; display: block; margin-bottom: 14px; }
+  .social-platform { color: white; font-size: 1rem; font-weight: bold; margin-bottom: 6px; }
+  .social-handle  { color: rgba(255,255,255,0.5); font-family: 'Arial', sans-serif; font-size: 0.86rem; }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--ivory); }
+  .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 44px; }
+  .contact-card {
+    background: white; border-radius: var(--radius); padding: 32px 24px; text-align: center;
+    border: 1.5px solid rgba(212,175,55,0.18); transition: all 0.28s;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05); position: relative; overflow: hidden;
+  }
+  .contact-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  }
+  .contact-card:nth-child(1)::before { background: linear-gradient(90deg, var(--teal), var(--teal-mid)); }
+  .contact-card:nth-child(2)::before { background: linear-gradient(90deg, var(--purple), var(--purple-mid)); }
+  .contact-card:nth-child(3)::before { background: linear-gradient(90deg, var(--gold-dark), var(--gold-mid)); }
+  .contact-card:nth-child(4)::before { background: linear-gradient(90deg, var(--crimson), var(--crimson-mid)); }
+  .contact-card:hover { transform: translateY(-6px); box-shadow: 0 16px 44px rgba(6,14,34,0.12); }
+  .contact-card-icon  { font-size: 2.4rem; display: block; margin-bottom: 14px; }
+  .contact-card-title { font-size: 1rem; color: var(--navy-deep); font-weight: bold; margin-bottom: 8px; }
+  .contact-card-desc  { font-family: 'Arial', sans-serif; font-size: 0.88rem; color: var(--text-light); line-height: 1.65; }
+  .contact-email {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, var(--navy-deep), var(--navy));
+    color: var(--gold-mid); padding: 16px 40px; border-radius: 40px;
+    font-family: 'Arial', sans-serif; font-size: 1.05rem; font-weight: bold;
+    text-decoration: none; transition: all 0.22s;
+    box-shadow: 0 6px 24px rgba(6,14,34,0.3); border: 1px solid rgba(212,175,55,0.3);
+  }
+  .contact-email:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(6,14,34,0.4); color: var(--gold); }
+
+  /* ─── EMAIL SIGNUP CALLOUT ─── */
+  .signup-section {
+    background:
+      radial-gradient(ellipse at 20% 50%, var(--teal-glow) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 50%, var(--gold-glow) 0%, transparent 50%),
+      linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-mid) 100%);
+    padding: 80px 48px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .signup-section::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--teal), var(--gold-mid), var(--purple-mid), var(--crimson));
+  }
+  .signup-section::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--crimson), var(--purple-mid), var(--gold-mid), var(--teal));
+  }
+  .signup-inner { max-width: 580px; margin: 0 auto; position: relative; z-index: 1; }
+  .signup-icon  { font-size: 3.5rem; display: block; margin-bottom: 16px; }
+  .signup-title { font-size: 2rem; color: white; margin-bottom: 14px; line-height: 1.3; }
+  .signup-desc  { font-family: 'Arial', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 36px; }
+  .signup-form  { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
+  .signup-input {
+    flex: 1; padding: 14px 22px; border-radius: 32px;
+    border: 2px solid rgba(212,175,55,0.4); background: rgba(255,255,255,0.08);
+    color: white; font-family: 'Arial', sans-serif; font-size: 0.95rem; outline: none;
+    transition: border-color 0.2s;
+  }
+  .signup-input::placeholder { color: rgba(255,255,255,0.45); }
+  .signup-input:focus { border-color: var(--gold-mid); }
+  .signup-btn {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-mid) 100%);
+    color: var(--navy-deep); padding: 14px 28px; border: none; border-radius: 32px;
+    font-family: 'Arial', sans-serif; font-size: 0.95rem; font-weight: 900;
+    cursor: pointer; transition: all 0.22s; white-space: nowrap;
+    box-shadow: 0 4px 18px rgba(212,175,55,0.45);
+  }
+  .signup-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,175,55,0.6); }
+  .signup-note { margin-top: 14px; font-family: 'Arial', sans-serif; font-size: 0.78rem; color: rgba(255,255,255,0.38); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy-deep); padding: 52px 48px 28px;
+    border-top: 3px solid var(--gold-dark);
+  }
+  .footer-inner { max-width: 1120px; margin: 0 auto; }
+  .footer-top   { display: flex; justify-content: space-between; align-items: center; margin-bottom: 36px; flex-wrap: wrap; gap: 22px; }
+  .footer-brand {
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold-mid), var(--gold-dark));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    font-size: 1.18rem; font-weight: bold;
+  }
+  .footer-tagline { font-family: 'Arial', sans-serif; font-size: 0.82rem; color: rgba(255,255,255,0.38); margin-top: 4px; }
+  .footer-links    { display: flex; gap: 32px; list-style: none; }
+  .footer-links a  { color: rgba(255,255,255,0.55); text-decoration: none; font-family: 'Arial', sans-serif; font-size: 0.86rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold-mid); }
+  .footer-mid { display: flex; gap: 24px; margin-bottom: 28px; flex-wrap: wrap; }
+  .footer-color-dot {
+    width: 18px; height: 18px; border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    flex-shrink: 0;
+  }
+  .footer-bottom { border-top: 1px solid rgba(212,175,55,0.16); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+  .footer-copy   { font-family: 'Arial', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.33); }
+  .footer-social { display: flex; gap: 18px; }
+  .footer-social a { color: rgba(255,255,255,0.46); text-decoration: none; font-family: 'Arial', sans-serif; font-size: 0.84rem; transition: color 0.2s; }
+  .footer-social a:hover { color: var(--gold-mid); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .features-grid  { grid-template-columns: repeat(2, 1fr); }
+    .social-grid    { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid   { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 96px 24px 56px; }
+    .hero-inner { flex-direction: column; gap: 44px; }
+    .hero h1 { font-size: 2.4rem; }
+    .hero-book { width: 100%; max-width: 280px; margin: 0 auto; }
+    .hero-stats { gap: 22px; }
+    section { padding: 64px 24px; }
+    .book-layout, .about-layout { flex-direction: column; }
+    .features-grid  { grid-template-columns: 1fr; }
+    .coming-card    { flex-direction: column; }
+    .coming-book    { width: 100%; }
+    .social-grid    { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid   { grid-template-columns: 1fr 1fr; }
+    .section-title  { font-size: 2rem; }
+    .quote-section blockquote { font-size: 1.45rem; }
+    .signup-form    { flex-direction: column; }
+    footer { padding: 36px 24px 24px; }
+    .footer-top { flex-direction: column; align-items: flex-start; gap: 18px; }
+    .footer-links { flex-wrap: wrap; gap: 16px; }
+  }
+  @media (max-width: 480px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .social-grid  { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-brand">Stories by A. S. Gates</div>
+  <ul class="nav-links">
+    <li><a href="#book">The Book</a></li>
+    <li><a href="#features">Why This Book</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#coming-soon">Coming Soon</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://www.amazon.com/dp/B0HMGF84KP">📦 Order on Amazon</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">✨ New Release — 2026</div>
+      <h1>Every Child Has <span class="gold-shimmer">Giants.</span><br/>They Don't Have to<br/>Face Them Alone.</h1>
+      <p class="hero-sub">Faith-based children's books that connect biblical truth to the real challenges kids face every day — bullying, fear, and feeling small.</p>
+      <div class="hero-buttons">
+        <a class="btn-primary" href="https://www.amazon.com/dp/B0HMGF84KP">📦 Order on Amazon</a>
+        <a class="btn-secondary" href="#book">Learn More</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-num">5–9</span><span class="hero-stat-label">Ages</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">1 Sam</span><span class="hero-stat-label">17 Inspired</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">KJV</span><span class="hero-stat-label">Scripture</span></div>
+      </div>
+    </div>
+    <div class="hero-book">
+      <div class="hero-book-ribbon">Available Now</div>
+      <div class="hero-book-title">David and the Really Big Problem</div>
+      <div class="hero-book-sub">A Story of Courage</div>
+      <div class="hero-book-tag">📦 Amazon</div>
+      <div class="hero-book-price">Paperback $14.99 · Kindle $7.99</div>
+    </div>
+  </div>
+</section>
+
+<div class="rainbow-rule"></div>
+
+<!-- ─── BOOK ─── -->
+<section id="book">
+  <div class="section-inner">
+    <div class="book-layout">
+      <div class="book-cover-wrap">
+        <div class="book-cover-badge">✨ Available Now</div>
+        <div class="book-cover-title">David and the Really Big Problem</div>
+        <div class="book-cover-author">By A. S. Gates</div>
+        <div class="book-cover-isbn">ISBN 979-8-177-79859-2</div>
+      </div>
+      <div class="book-content">
+        <div class="section-label" style="color:var(--crimson);">The Book</div>
+        <h2 class="section-title">David and the Really Big Problem</h2>
+        <div class="book-tags">
+          <span class="book-tag">📖 Faith-Based</span>
+          <span class="book-tag">🌊 Courage</span>
+          <span class="book-tag">👨‍👩‍👦 Ages 5–9</span>
+          <span class="book-tag">📜 1 Samuel 17</span>
+          <span class="book-tag">🏫 Anti-Bullying</span>
+        </div>
+        <p>Micah loves school — spelling games, drawing superheroes, and being with his friends. But lately, one part of school makes his stomach feel twisty. A boy named Jayden has been bothering him, and no matter how hard Micah tries to ignore it, the problem keeps growing.</p>
+        <p>That evening, Mom opens the Bible and shows Micah the story of David — a boy who also faced something much bigger than himself. David was younger and smaller than Goliath. But he didn't give up because he trusted God.</p>
+        <p>The next morning, Micah goes back to school with something new: the courage to do what is right, even when he is afraid.</p>
+        <div class="book-scripture">
+          <blockquote>"The battle is the LORD's…"</blockquote>
+          <cite>— 1 Samuel 17:47, KJV</cite>
+        </div>
+        <div class="book-pricing">
+          <span class="price-pill">📘 Paperback — $14.99</span>
+          <span class="price-pill">📱 Kindle — $7.99</span>
+        </div>
+        <a class="btn-primary" href="https://www.amazon.com/dp/B0HMGF84KP">📦 Order on Amazon Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="teal-rule"></div>
+
+<!-- ─── FEATURES ─── -->
+<section id="features">
+  <div class="section-inner">
+    <div class="section-label" style="color:var(--teal);">Why This Book</div>
+    <h2 class="section-title">Written for the Real Giants Kids Face Today</h2>
+    <p class="section-desc">Every element of this book is designed to help children understand that courage is not the absence of fear — it is trusting God and choosing what is right anyway.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">📖</span>
+        <h3 class="feature-title">Rooted in Scripture</h3>
+        <p class="feature-desc">Directly inspired by 1 Samuel 17 — David and Goliath retold through the lens of a modern child's daily life.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🌊</span>
+        <h3 class="feature-title">Tackles Real Issues</h3>
+        <p class="feature-desc">Bullying, fear, and feeling small are real. This book names them honestly and points children to a real God who sees them.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">👨‍👩‍👦</span>
+        <h3 class="feature-title">Diverse &amp; Relatable</h3>
+        <p class="feature-desc">Characters and families that reflect the real world children live in — so every child sees themselves in the story.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💬</span>
+        <h3 class="feature-title">Starts Conversations</h3>
+        <p class="feature-desc">Designed to open doors between parents, teachers, pastors, and children about the hard stuff — with Scripture as the foundation.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🙏🏾</span>
+        <h3 class="feature-title">Faith That Works</h3>
+        <p class="feature-desc">Shows children that prayer is real, that God hears them, and that courage is something God gives — not something you have to find alone.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">✍🏾</span>
+        <h3 class="feature-title">Crafted With Care</h3>
+        <p class="feature-desc">Every word chosen to be accessible to ages 5–9 while meaningful enough for parents and teachers to read aloud with depth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BANNER -->
+<div class="quote-section">
+  <div class="quote-mark">"</div>
+  <blockquote>
+    "Courage is not the absence of fear —<br/>it is trusting God and choosing what is right anyway."
+    <span class="quote-cite">— Stories by A. S. Gates</span>
+  </blockquote>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-layout">
+      <div class="about-portrait">
+        <div class="about-portrait-accent"></div>
+        <div class="about-portrait-inner">
+          <div class="about-portrait-emoji">✍🏾</div>
+          <div class="about-portrait-name">A. S. Gates<br/>Author</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-label" style="color:var(--purple-mid);">About the Author</div>
+        <h2 class="section-title">A. S. Gates</h2>
+        <p>A. S. Gates is a faith-based children's book author on a mission to help young readers see that they are never alone — no matter how big their problem feels.</p>
+        <p>Through relatable characters, diverse families, and timeless Scripture, A. S. Gates creates stories that connect biblical lessons to the everyday challenges children face — bullying, fear, loneliness, and change.</p>
+        <p><em>David and the Really Big Problem</em> is the first book in the <em>Stories by A. S. Gates</em> collection. More stories are coming soon.</p>
+        <p>A. S. Gates believes every child deserves to hear: <strong>You are seen. You are loved. And you are never alone.</strong></p>
+        <div class="about-values">
+          <div class="about-value">
+            <div class="about-value-icon">👥</div>
+            <div class="about-value-text"><strong>Relatability</strong><span>Characters and families that reflect the real world children live in.</span></div>
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon">📜</div>
+            <div class="about-value-text"><strong>Biblical Truth</strong><span>Stories rooted in Scripture that point children toward the Bible.</span></div>
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon">💬</div>
+            <div class="about-value-text"><strong>Conversation</strong><span>Books that open doors for adults to talk with children about the hard stuff.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-band-teal"></div>
+
+<!-- ─── COMING SOON ─── -->
+<section id="coming-soon">
+  <div class="section-inner">
+    <div class="section-label" style="color:var(--purple-mid);">More Stories Coming Soon</div>
+    <h2 class="section-title">The Collection is Growing</h2>
+    <p class="section-desc">Each book in the collection connects a timeless biblical story to a real challenge children face today.</p>
+    <div class="coming-card">
+      <div class="coming-book">
+        <div class="coming-book-label">Coming Soon</div>
+        <div class="coming-book-title">Daniel Said No</div>
+      </div>
+      <div class="coming-content">
+        <h3>Daniel Said No:<br/>A Story About Standing Firm</h3>
+        <p>When Everyone Else Is Doing Something Wrong — inspired by Daniel 1. The next book in the <em>Stories by A. S. Gates</em> collection helps children discover that standing firm in what is right takes courage, even when it feels lonely.</p>
+        <span class="coming-tag">📖 Inspired by Daniel 1 — Coming Soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-band-purple"></div>
+
+<!-- ─── SOCIAL ─── -->
+<section id="social" style="padding: 80px 48px;">
+  <div class="section-inner">
+    <div class="section-label" style="color:var(--gold-mid);">Follow Along</div>
+    <h2 class="section-title" style="color:white;">Find Us on Social Media</h2>
+    <p class="section-desc" style="color:rgba(255,255,255,0.65);">Follow @storiesbyasgates for encouragement, Scripture, new book announcements, and content for parents, teachers, and churches.</p>
+    <div class="social-grid">
+      <a class="social-card" href="https://www.instagram.com/storiesbyasgates">
+        <span class="social-icon">📸</span>
+        <div class="social-platform">Instagram</div>
+        <div class="social-handle">@storiesbyasgates</div>
+      </a>
+      <a class="social-card" href="https://www.tiktok.com/@storiesbyasgates">
+        <span class="social-icon">🎵</span>
+        <div class="social-platform">TikTok</div>
+        <div class="social-handle">@storiesbyasgates</div>
+      </a>
+      <a class="social-card" href="https://www.facebook.com/storiesbyasgates">
+        <span class="social-icon">👥</span>
+        <div class="social-platform">Facebook</div>
+        <div class="social-handle">@storiesbyasgates</div>
+      </a>
+      <a class="social-card" href="https://www.amazon.com/dp/B0HMGF84KP">
+        <span class="social-icon">📦</span>
+        <div class="social-platform">Amazon</div>
+        <div class="social-handle">Stories by A. S. Gates</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EMAIL SIGNUP ─── -->
+<div class="signup-section">
+  <div class="signup-inner">
+    <span class="signup-icon">📬</span>
+    <h2 class="signup-title">Stay in the <span class="gold-shimmer">Story</span></h2>
+    <p class="signup-desc">Be the first to hear about new books, free resources for parents &amp; teachers, and behind-the-scenes updates from A. S. Gates.</p>
+    <form class="signup-form" onsubmit="return false;">
+      <input class="signup-input" type="email" placeholder="Your email address" aria-label="Email address"/>
+      <button class="signup-btn" type="submit">Join the List</button>
+    </form>
+    <p class="signup-note">No spam. Just stories. Unsubscribe anytime. · contact@storiesbyasgates.com</p>
+  </div>
+</div>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label" style="color:var(--crimson-mid);">Get in Touch</div>
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="section-desc" style="margin:0 auto 44px;">Whether you're a parent, educator, pastor, or media professional — we'd love to hear from you.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="contact-card-icon">🏫</span>
+        <div class="contact-card-title">School Visits</div>
+        <div class="contact-card-desc">Read-alouds and author visits for classrooms and school events</div>
+      </div>
+      <div class="contact-card">
+        <span class="contact-card-icon">⛪</span>
+        <div class="contact-card-title">Church Partnerships</div>
+        <div class="contact-card-desc">Sunday school, VBS curriculum support, and bulk orders</div>
+      </div>
+      <div class="contact-card">
+        <span class="contact-card-icon">📦</span>
+        <div class="contact-card-title">Bulk Orders</div>
+        <div class="contact-card-desc">Classrooms, churches, and community organization events</div>
+      </div>
+      <div class="contact-card">
+        <span class="contact-card-icon">🎙️</span>
+        <div class="contact-card-title">Media &amp; Speaking</div>
+        <div class="contact-card-desc">Podcasts, interviews, and speaking engagement requests</div>
+      </div>
+    </div>
+    <a class="contact-email" href="mailto:contact@storiesbyasgates.com">✉️ contact@storiesbyasgates.com</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Stories by A. S. Gates</div>
+        <div class="footer-tagline">Faith-based children's books · storiesbyasgates.com</div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#book">The Book</a></li>
+        <li><a href="#features">Why This Book</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#coming-soon">Coming Soon</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-mid">
+      <div class="footer-color-dot" style="background:var(--navy); border:2px solid rgba(255,255,255,0.2);" title="Deep Navy"></div>
+      <div class="footer-color-dot" style="background:var(--gold);" title="True Gold"></div>
+      <div class="footer-color-dot" style="background:var(--crimson);" title="Deep Crimson"></div>
+      <div class="footer-color-dot" style="background:var(--teal-mid);" title="Vibrant Teal"></div>
+      <div class="footer-color-dot" style="background:var(--purple-mid);" title="Rich Purple"></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 A. S. Gates · All rights reserved · ISBN 979-8-177-79859-2 · A Beyond the Gates brand</div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/storiesbyasgates">Instagram</a>
+        <a href="https://www.tiktok.com/@storiesbyasgates">TikTok</a>
+        <a href="https://www.facebook.com/storiesbyasgates">Facebook</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
